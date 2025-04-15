@@ -40,9 +40,10 @@ export default function CTA()  {
                     transition={{ duration: 0.5 }}
                     className="flex-shrink-0 flex items-center"
                   >
-                    <Image src="/images/logo.png" alt="Logo" width={200} height={100} className="h-15 w-auto" />
+                    <Image src="/logo.png" alt="Logo" width={200} height={100} className="h-15 w-auto" />
                   </motion.div>
-          <p className="text-gray-600 mt-2">Pioneering the Future of Artificial Intelligence</p>
+          <p className="text-gray-600 mt-2">National
+          Centre Of Artificial Intelligence.</p>
         </div>
         <div className="flex space-x-6">
           {['Twitter', 'GitHub', 'LinkedIn', 'YouTube'].map((social) => (
