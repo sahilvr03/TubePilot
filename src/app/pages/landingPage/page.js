@@ -3,16 +3,16 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import TechnologyPage from "@/app/components/technologyPage/page";
-import AboutPage from "@/app/components/aboutPage/page";
-import CTA from "@/app/components/ctaPage/page";
-import Testimonials from "@/app/components/testimonials/page";
-import Navbar from "@/app/components/navbar/page";
+
+import TechnologyPage from "../../components/technologyPage/tech";
+import AboutPage from "../../components/aboutPage/about";
+import CTA from "../../components/ctaPage/cta";
+import Testimonials from "../../components/testimonials/test";
+import Navbar from "../../components/navbar/navbar";
 
 
 
-
-export default function Home() {
+export default function LandingPage() {
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';

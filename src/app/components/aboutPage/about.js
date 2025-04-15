@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-export default function page() {
+export default function AboutPage() {
   return (
     <div> {/* About Section */}
     <section id="about" className="relative py-30 px-4 sm:px-6 lg:px-8 bg-gray-50">

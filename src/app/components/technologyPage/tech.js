@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 
-export default function page() {
+export default function TechnologyPage() {
 
 
     const technologies = [

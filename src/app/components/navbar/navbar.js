@@ -1,12 +1,10 @@
-
-
 import React from 'react';
 import { motion } from "framer-motion";
 import Image from 'next/image';
 
 
 
-export default function page() {
+export default function Navbar() {
   return (
     <div>    <nav className="fixed w-full z-50 backdrop-blur-sm bg-white/90 border-b border-gray-200 shadow-sm">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
