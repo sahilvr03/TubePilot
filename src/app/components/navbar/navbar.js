@@ -15,7 +15,7 @@ export default function Navbar() {
           transition={{ duration: 0.5 }}
           className="flex-shrink-0 flex items-center"
         >
-          <Image src="/images/logo.png" alt="Logo" width={200} height={100} className="h-15 w-auto" />
+          <Image src="/logo.png" alt="Logo" width={200} height={100} className="h-15 w-auto" />
         </motion.div>
         <div className="hidden md:block">
           <div className="ml-10 flex items-baseline space-x-2">

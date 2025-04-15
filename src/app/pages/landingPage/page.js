@@ -210,7 +210,7 @@ export default function LandingPage() {
         className="relative h-full min-h-[400px] hidden lg:block"
       >
         <div className="absolute inset-0  overflow-hidden pl-8">
-        <Image src="/images/robo.png" 
+        <Image src="/robo.png" 
         alt="My Image" 
         width={550} 
         height={450} />
@@ -256,7 +256,7 @@ export default function LandingPage() {
       >
         <div className="relative overflow-hidden ">
           <Image
-            src="/images/bb.png"
+            src="/bb.png"
             alt="Smart AI Solutions"
             width={650}
             height={450}
