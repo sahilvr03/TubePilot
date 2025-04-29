@@ -23,7 +23,7 @@ export default function Navbar() {
         </motion.div>
         <div className="hidden md:block">
           <div className="ml-10 flex items-baseline space-x-2">
-            {['Home', 'About', 'Research Areas', 'Projects','Services', 'Publications','Team','News and Events', 'gallery', 'Contact Us'].map((item, index) => (
+            {["Sign-In", 'Contact Us'].map((item, index) => (
               <motion.a
                 key={item}
                 initial={{ opacity: 0, y: -10 }}
