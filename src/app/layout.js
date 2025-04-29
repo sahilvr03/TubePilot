@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Smart City Lab",
+  title: "Tube-Pilot",
   description: "National Centre Of Artificial Intelligence",
 };
 
