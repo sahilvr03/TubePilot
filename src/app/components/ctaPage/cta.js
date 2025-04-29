@@ -25,7 +25,7 @@ export default function CTA()  {
         className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 rounded-lg shadow-lg text-white font-semibold text-lg transition-all"
       >
         Get in Touch
-      </motion.button>
+      </motion.button> 
     </motion.div>
 </section>
 
