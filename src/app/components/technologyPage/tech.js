@@ -119,20 +119,20 @@ export default function TechnologyPage() {
   ];
 
   const renderSection = (title, plans) => (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white">
       <div className="max-w-7xl mx-auto">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-cyan-400 drop-shadow-lg">
             {title}
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-red-500 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <div className="w-20 h-1 bg-gradient-to-r from-cyan-400 to-pink-500 mx-auto mb-6 rounded-full"></div>
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
             Flexible plans tailored for your business.
           </p>
         </motion.div>
@@ -145,23 +145,26 @@ export default function TechnologyPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
-              className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-100"
+              whileHover={{
+                y: -8,
+                boxShadow: "0 0 20px rgba(34,211,238,0.5)",
+              }}
+              className="bg-[#111] p-6 rounded-xl border border-cyan-500/20 shadow-lg transition-all"
             >
               <div
                 className={`text-3xl mb-3 ${
-                  index % 2 === 0 ? "text-blue-600" : "text-red-500"
+                  index % 2 === 0 ? "text-cyan-400" : "text-pink-500"
                 }`}
               >
                 💡
               </div>
-              <h3 className="text-xl font-bold mb-2 text-gray-900">
+              <h3 className="text-xl font-bold mb-2 text-white">
                 {plan.name}
               </h3>
-              <p className="text-2xl font-semibold text-gray-900 mb-4">
+              <p className="text-2xl font-semibold text-cyan-300 mb-4">
                 {plan.price}
               </p>
-              <ul className="text-gray-600">
+              <ul className="text-gray-400">
                 {plan.features.map((feature) => (
                   <li key={feature} className="mb-2">
                     • {feature}

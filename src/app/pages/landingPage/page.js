@@ -9,6 +9,7 @@ import AboutPage from "../../components/aboutPage/about";
 import CTA from "../../components/ctaPage/cta";
 import Testimonials from "../../components/testimonials/test";
 import Navbar from "../../components/navbar/navbar";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function LandingPage() {
   useEffect(() => {
@@ -18,44 +19,41 @@ export default function LandingPage() {
       if (window.particlesJS) {
         window.particlesJS("particles-js", {
           particles: {
-            number: { value: 75, density: { enable: true, value_area: 800 } },
-            color: { value: ["#3b82f6", "#e11d48", "#0ea5e9"] },
+            number: { value: 85, density: { enable: true, value_area: 800 } },
+            color: { value: ["#3b82f6", "#22d3ee", "#f43f5e"] },
             shape: { type: "circle" },
             opacity: {
-              value: 0.6,
+              value: 0.4,
               random: true,
               anim: { enable: true, speed: 0.7, opacity_min: 0.3 },
             },
             size: {
-              value: 3.5,
+              value: 3,
               random: true,
-              anim: { enable: true, speed: 3, size_min: 0.5 },
+              anim: { enable: true, speed: 2, size_min: 0.5 },
             },
             line_linked: {
               enable: true,
-              distance: 120,
-              color: "#f43f5e",
-              opacity: 0.4,
+              distance: 140,
+              color: "#22d3ee",
+              opacity: 0.35,
               width: 1,
             },
             move: {
               enable: true,
-              speed: 1.2,
-              direction: "none",
-              random: false,
-              straight: false,
+              speed: 1,
               out_mode: "out",
             },
           },
           interactivity: {
             detect_on: "canvas",
             events: {
-              onhover: { enable: true, mode: "repulse" },
+              onhover: { enable: true, mode: "grab" },
               onclick: { enable: true, mode: "push" },
               resize: true,
             },
             modes: {
-              repulse: { distance: 100, duration: 0.4 },
+              grab: { distance: 150, line_linked: { opacity: 0.5 } },
               push: { particles_nb: 4 },
             },
           },
@@ -72,7 +70,7 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <div className="relative min-h-screen text-white overflow-x-hidden">
+    <div className="relative min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden">
       <Navbar />
 
       {/* Particle Background */}
@@ -91,15 +89,16 @@ export default function LandingPage() {
             {/* Left Content */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
               <motion.div
                 animate={{
                   textShadow: [
-                    "0 0 8px rgba(59,130,246,0)",
-                    "0 0 12px rgba(245,158,11,0.3)",
-                    "0 0 8px rgba(59,130,246,0)",
+                    "0 0 8px rgba(34,211,238,0)",
+                    "0 0 15px rgba(34,211,238,0.6)",
+                    "0 0 8px rgba(34,211,238,0)",
                   ],
                 }}
                 transition={{
@@ -107,39 +106,42 @@ export default function LandingPage() {
                   repeat: Infinity,
                   repeatType: "reverse",
                 }}
-                className="text-sm sm:text-base mb-4 font-semibold text-gray-500 uppercase tracking-wide"
+                className="text-sm sm:text-base mb-4 font-myfont font-semibold uppercase tracking-wide"
               >
-                Empowering Businesses with AI Solutions
+                Next-Level AI Solutions
               </motion.div>
 
-              <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight mb-8 text-gray-50">
-                <span className="block text-blue-500">TechTrend Innovations</span>
-                <span className="block text-gray-700">
-                  AI-Powered SaaS & Digital Solutions
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-myfont font-extrabold leading-tight mb-8">
+                <span className="block text-red-400 drop-shadow-lg">
+                  TechTrend Innovations
+                </span>
+                <span className="block text-white/90">
+                  AI-Powered SaaS & Digital Products
                 </span>
               </h1>
 
               <motion.p
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
                 transition={{ delay: 0.3, duration: 0.8 }}
-                className="text-lg text-gray-400 mb-8 max-w-xl"
+                className="text-lg text-gray-200 mb-8 max-w-xl"
               >
-                Transform your business with AI-driven SaaS, e-commerce platforms, mobile apps, and IoT innovations.
+                We craft high-performance AI-driven SaaS, immersive websites, mobile apps, and IoT innovations with futuristic design.
               </motion.p>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <motion.button
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.05, boxShadow: "0 0 15px #22d3ee" }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 rounded-xl text-white font-semibold transition-all shadow-lg"
+                  className="px-8 py-3 bg-red-500 hover:bg-red-400 rounded-xl text-white font-semibold transition-all shadow-lg"
                 >
                   🚀 Explore Solutions
                 </motion.button>
                 <motion.button
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.05, boxShadow: "0 0 15px #f43f5e" }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 border border-white/20 bg-yellow-500 backdrop-blur-lg rounded-xl text-white font-medium transition-all shadow-md"
+                  className="px-8 py-3 border border-red-500 bg-white-600 rounded-xl text-white font-medium transition-all shadow-md"
                 >
                   📁 Request a Demo
                 </motion.button>
@@ -148,9 +150,10 @@ export default function LandingPage() {
               {/* Tech Tags */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ delay: 0.5, duration: 0.8 }}
-                className="mt-12 flex flex-wrap gap-3"
+                className="mt-12 flex flex-wrap gap-3 font-myfont"
               >
                 {[
                   "AI Assistants",
@@ -161,7 +164,7 @@ export default function LandingPage() {
                 ].map((tech) => (
                   <span
                     key={tech}
-                    className="bg-blue-600/90 px-4 py-2 rounded-lg text-sm font-semibold shadow-md text-gray-100"
+                    className="bg-cyan-500/20 border border-cyan-500/30 px-4 py-2 rounded-lg text-sm font-semibold shadow-md text-cyan-300"
                   >
                     {tech}
                   </span>
@@ -170,24 +173,23 @@ export default function LandingPage() {
             </motion.div>
 
             {/* Right Image */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative h-full min-h-[400px] hidden lg:block"
             >
-              <div className="absolute inset-0 overflow-hidden pl-8">
-                <Image
-                  src="/robo.png"
-                  alt="TechTrend AI Robot"
-                  width={550}
-                  height={450}
-                  className="drop-shadow-xl"
-                />
-              </div>
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-blue-400/10 rounded-full blur-2xl"></div>
-              <div className="absolute -top-6 -right-6 w-40 h-40 bg-rose-600/10 rounded-full blur-2xl"></div>
-            </motion.div>
+               <div className="  w-150">
+      <DotLottieReact
+        src="/animations/animation.json" // Path to your .lottie file
+        loop
+        autoplay
+      />
+    </div>
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl"></div>
+              <div className="absolute -top-6 -right-6 w-40 h-40 bg-pink-600/10 rounded-full blur-2xl"></div>
+            </motion.div> */}
           </div>
         </div>
       </section>

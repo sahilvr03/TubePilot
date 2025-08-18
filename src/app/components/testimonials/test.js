@@ -20,44 +20,42 @@ export default function Testimonials() {
     },
   ];
 
-  return (
-    <div>
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <motion.div 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-900">What Industry Experts Say</h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-red-500 to-yellow-400 mx-auto mb-6"></div>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Leaders across AI and media recognize our impact on the future of intelligent content platforms.
-            </p>
-          </motion.div>
+ return (
+        <section className="relative py-20 px-4 sm:px-6 lg:px-8 ">
+          <div className="max-w-7xl mx-auto">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">What Industry Experts Say</h2>
+              <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-amber-500 mx-auto mb-6"></div>
+              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+                Leaders across AI and media recognize our impact on the future of intelligent content platforms.
+              </p>
+            </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={testimonial.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all border border-gray-100"
-              >
-                <div className="text-gray-600 mb-4 text-lg italic">“{testimonial.quote}”</div>
-                <div className="font-bold text-gray-900">{testimonial.name}</div>
-                <div className={`text-sm ${index % 2 === 0 ? 'text-red-500' : 'text-yellow-500'}`}>
-                  {testimonial.role}
-                </div>
-              </motion.div>
-            ))}
+            <div className="grid md:grid-cols-3 gap-8">
+              {testimonials.map((testimonial, index) => (
+                <motion.div
+                  key={testimonial.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.2 }}
+                  className="bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all border border-gray-700"
+                >
+                  <div className="text-gray-300 mb-4 text-lg italic">“{testimonial.quote}”</div>
+                  <div className="font-bold text-white">{testimonial.name}</div>
+                  <div className={`text-sm ${index % 2 === 0 ? 'text-cyan-400' : 'text-amber-400'}`}>
+                    {testimonial.role}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-    </div>
-  );
+        </section>
+      );
 }
