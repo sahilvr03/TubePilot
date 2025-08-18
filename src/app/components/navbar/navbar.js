@@ -16,7 +16,7 @@ export default function Navbar() {
                 className="flex-shrink-0 flex items-center"
               >
                 <h1 className="text-2xl font-extrabold leading-tight">
-                  <span className="block ttext-gray-300 hover:text-cyan-400">Docoderst</span>
+                  <span className="block ttext-gray-300 hover:text-cyan-400">Docoders</span>
                 </h1>
               </motion.div>
               <div className="hidden md:block">

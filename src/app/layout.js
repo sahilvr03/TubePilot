@@ -8,8 +8,8 @@ const bungee = Bungee({
 });
 
 export const metadata = {
-  title: "Tube-Pilot",
-  description: "National Centre Of Artificial Intelligence",
+  title: "DoCoders",
+  description: "Turning Vision Into Scalable Software",
 };
 
 export default function RootLayout({ children }) {
