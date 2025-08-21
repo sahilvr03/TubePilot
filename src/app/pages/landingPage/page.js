@@ -2,14 +2,13 @@
 
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 import TechnologyPage from "../../components/technologyPage/tech";
 import AboutPage from "../../components/aboutPage/about";
 import CTA from "../../components/ctaPage/cta";
 import Testimonials from "../../components/testimonials/test";
 import Navbar from "../../components/navbar/navbar";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function LandingPage() {
   useEffect(() => {
@@ -92,6 +91,7 @@ export default function LandingPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
+              className="text-center lg:text-left"
             >
               <motion.div
                 animate={{
@@ -106,12 +106,12 @@ export default function LandingPage() {
                   repeat: Infinity,
                   repeatType: "reverse",
                 }}
-                className="text-sm sm:text-base mb-4 font-myfont font-semibold uppercase tracking-wide"
+                className="text-xs sm:text-sm md:text-base mb-4 font-myfont font-semibold uppercase tracking-wide"
               >
                 Next-Level AI Solutions
               </motion.div>
 
-              <h1 className="text-4xl sm:text-5xl md:text-7xl font-myfont font-extrabold leading-tight mb-8">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl xl:text-7xl font-myfont font-extrabold leading-tight mb-6">
                 <span className="block text-red-400 drop-shadow-lg">
                   TechTrend Innovations
                 </span>
@@ -125,71 +125,83 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3, duration: 0.8 }}
-                className="text-lg text-gray-200 mb-8 max-w-xl"
+                className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0"
               >
-                We craft high-performance AI-driven SaaS, immersive websites, mobile apps, and IoT innovations with futuristic design.
+                We craft high-performance AI-driven SaaS, immersive websites,
+                mobile apps, and IoT innovations with futuristic design.
               </motion.p>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <motion.button
-                  whileHover={{ scale: 1.05, boxShadow: "0 0 15px #22d3ee" }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 bg-red-500 hover:bg-red-400 rounded-xl text-white font-semibold transition-all shadow-lg"
-                >
-                  🚀 Explore Solutions
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05, boxShadow: "0 0 15px #f43f5e" }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-3 border border-red-500 bg-white-600 rounded-xl text-white font-medium transition-all shadow-md"
-                >
-                  📁 Request a Demo
-                </motion.button>
-              </div>
-
-              {/* Tech Tags */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-                className="mt-12 flex flex-wrap gap-3 font-myfont"
-              >
-                {[
-                  "AI Assistants",
-                  "E-commerce APIs",
-                  "Mobile SDKs",
-                  "IoT Platforms",
-                  "Cloud Services",
-                ].map((tech) => (
-                  <span
-                    key={tech}
-                    className="bg-cyan-500/20 border border-cyan-500/30 px-4 py-2 rounded-lg text-sm font-semibold shadow-md text-cyan-300"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </motion.div>
             </motion.div>
 
-            {/* Right Image */}
-            {/* <motion.div
+            {/* Right Content */}
+            <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative h-full min-h-[400px] hidden lg:block"
+              className="relative h-full min-h-[300px] flex flex-col mt-[-30] items-center justify-center"
             >
-               <div className="  w-150">
-      <DotLottieReact
-        src="/animations/animation.json" // Path to your .lottie file
-        loop
-        autoplay
-      />
-    </div>
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl"></div>
-              <div className="absolute -top-6 -right-6 w-40 h-40 bg-pink-600/10 rounded-full blur-2xl"></div>
-            </motion.div> */}
+              {/* Lottie Animation */}
+              <div className="w-full max-w-[350px] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[500px] xl:max-w-[550px] aspect-square">
+                <DotLottieReact
+                  src="/animations/new.json"
+                  loop
+                  autoplay
+                  renderer="svg"
+                  rendererSettings={{
+                    preserveAspectRatio: "xMidYMid meet",
+                  }}
+                />
+              </div>
+
+              {/* Buttons + Tech Tags */}
+              <div className="flex flex-col items-center w-full ">
+                {/* Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 mb-6 w-full sm:w-auto justify-center">
+                  <motion.button
+                    whileHover={{ scale: 1.05, boxShadow: "0 0 15px #22d3ee" }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-6 py-3 sm:px-8 sm:py-3 bg-red-500 hover:bg-red-400 rounded-xl text-white font-semibold transition-all shadow-lg text-sm sm:text-base"
+                  >
+                    🚀 Explore Solutions
+                  </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.05, boxShadow: "0 0 15px #f43f5e" }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-6 py-3 sm:px-8 sm:py-3 border border-red-500 bg-transparent rounded-xl text-white font-medium transition-all shadow-md text-sm sm:text-base"
+                  >
+                    📁 Request a Demo
+                  </motion.button>
+                </div>
+
+                {/* Tech Tags */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5, duration: 0.8 }}
+                  className="flex flex-wrap gap-3 justify-center font-myfont"
+                >
+                  {[
+                    "AI Assistants",
+                    "E-commerce APIs",
+                    "Mobile SDKs",
+                    "IoT Platforms",
+                    "Cloud Services",
+                  ].map((tech) => (
+                    <span
+                      key={tech}
+                      className="bg-cyan-500/20 border border-cyan-500/30 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold shadow-md text-cyan-300"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </motion.div>
+              </div>
+
+              {/* Glow Effects */}
+              <div className="absolute -bottom-6 -left-6 w-24 sm:w-32 h-24 sm:h-32 bg-cyan-500/10 rounded-full blur-2xl"></div>
+              <div className="absolute -top-6 -right-6 w-28 sm:w-40 h-28 sm:h-40 bg-pink-600/10 rounded-full blur-2xl"></div>
+            </motion.div>
           </div>
         </div>
       </section>

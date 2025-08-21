@@ -24,16 +24,17 @@ export default function CTA() {
             Partner with us to leverage AI-driven SaaS, e-commerce, mobile apps,
             and IoT solutions for your business growth.
           </p>
-          <motion.button
+          <motion.a
             whileHover={{
               scale: 1.05,
               boxShadow: '0 0 25px rgba(34,211,238,0.5)',
             }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-pink-500 rounded-lg shadow-lg text-white font-semibold text-lg transition-all"
+            href="mailto:docoder@docoders.com"
+            className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-pink-500 rounded-lg shadow-lg text-white font-semibold text-lg transition-all inline-block"
           >
             Get Started Now
-          </motion.button>
+          </motion.a>
         </motion.div>
       </section>
 
@@ -62,21 +63,51 @@ export default function CTA() {
 
             {/* Social links */}
             <div className="flex space-x-6">
-              {['Twitter', 'GitHub', 'LinkedIn', 'YouTube'].map((social) => (
-                <motion.a
-                  key={social}
-                  whileHover={{
-                    y: -3,
-                    color: '#22d3ee',
-                    textShadow: '0 0 8px rgba(34,211,238,0.8)',
-                  }}
-                  href="#"
-                  className="text-gray-500 hover:text-cyan-400 transition-colors"
-                >
-                  {social}
-                </motion.a>
-              ))}
+              <motion.a
+                whileHover={{
+                  y: -3,
+                  color: '#22d3ee',
+                  textShadow: '0 0 8px rgba(34,211,238,0.8)',
+                }}
+                href="https://www.linkedin.com/company/docoder/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-cyan-400 transition-colors"
+              >
+                LinkedIn
+              </motion.a>
+              <motion.a
+                whileHover={{
+                  y: -3,
+                  color: '#22d3ee',
+                  textShadow: '0 0 8px rgba(34,211,238,0.8)',
+                }}
+                href="https://www.instagram.com/docoders03?igsh=MWVjaWxhaXlqamZnZg=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-cyan-400 transition-colors"
+              >
+                Instagram
+              </motion.a>
+              <motion.a
+                whileHover={{
+                  y: -3,
+                  color: '#22d3ee',
+                  textShadow: '0 0 8px rgba(34,211,238,0.8)',
+                }}
+                href="mailto:docoder@docoders.com"
+                className="text-gray-500 hover:text-cyan-400 transition-colors"
+              >
+                Email ✉
+              </motion.a>
             </div>
+          </div>
+
+          {/* Contact Info */}
+          <div className="mt-8 text-center text-gray-400 space-y-2">
+            <p>📩 General: <a href="mailto:docoder@docoders.com" className="hover:text-cyan-400">docoder@docoders.com</a></p>
+            <p>🦾 Support: <a href="mailto:support@docoder.com" className="hover:text-cyan-400">support@docoder.com</a></p>
+            <p>ℹ Info: <a href="mailto:info@docoder.com" className="hover:text-cyan-400">info@docoder.com</a></p>
           </div>
 
           {/* Bottom copyright */}
