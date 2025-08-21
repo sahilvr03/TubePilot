@@ -1,8 +1,13 @@
-// layout.js or layout.jsx
-import { Bungee } from "next/font/google";
+// layout.jsx
 import "./globals.css";
+import { Bungee, Permanent_Marker } from "next/font/google";
 
 const bungee = Bungee({
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const permanentMarker = Permanent_Marker({
   weight: "400",
   subsets: ["latin"],
 });
@@ -15,7 +20,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${bungee.className} antialiased`}>
+      <body className={`antialiased ${bungee.className}`}>
         {children}
       </body>
     </html>

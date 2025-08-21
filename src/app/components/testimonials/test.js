@@ -1,65 +1,101 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+"use client";
 
-export default function Testimonials() {
-  const testimonials = [
-    {
-      title: "AI in Media",
-      source: "Industry Analyst Report",
-      quote: "AI-driven platforms are expected to redefine how businesses engage with audiences globally.",
-    },
-    {
-      title: "Content Personalization",
-      source: "Tech Innovation Journal",
-      quote: "Smart recommendation engines can boost user engagement by over 30% when integrated effectively.",
-    },
-    {
-      title: "Future of Intelligent Platforms",
-      source: "Global Research Insight",
-      quote: "The next wave of content platforms will combine academic research with real-world solutions.",
-    },
-  ];
+import { useEffect, useState } from "react";
+import { FaStar } from "react-icons/fa";
+import { FaQuoteLeft } from "react-icons/fa6";
+import { Orbitron, Oxanium } from "next/font/google";
+
+const orbitron = Orbitron({
+  subsets: ["latin"],
+  weight: ["400", "700", "800", "900"],
+});
+const oxanium = Oxanium({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+});
+
+const reviews = [
+  {
+    name: "John Doe",
+    role: "Music Producer",
+    review:
+      "This platform completely changed how I collaborate with artists. The UI is smooth, and the experience is top-notch!",
+  },
+  {
+    name: "Emily Carter",
+    role: "DJ & Performer",
+    review:
+      "Amazing! The animations and smooth interactions make the platform feel alive. It’s the future of music platforms!",
+  },
+  {
+    name: "Michael Smith",
+    role: "Sound Engineer",
+    review:
+      "I love the professionalism and sleek design. It helps me connect with musicians in a seamless way.",
+  },
+];
+
+export default function Reviews() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % reviews.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section className="relative py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">
-            Expert Insights on the Future
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-amber-500 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Industry leaders and analysts share their vision of where AI and intelligent content are headed.
-          </p>
-        </motion.div>
+    <div className="w-full flex flex-col items-center justify-center py-16  text-white">
+      <h2
+        className={`${orbitron.className} text-4xl font-bold mb-10 tracking-wide text-center`}
+      >
+        What Our Clients Say
+      </h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="bg-gray-900 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all border border-gray-700"
+      <div className="relative w-[90%] md:w-[700px] h-[250px] overflow-hidden">
+        <div
+          className="flex transition-transform duration-700 ease-in-out"
+          style={{ transform: `translateX(-${current * 100}%)` }}
+        >
+          {reviews.map((r, idx) => (
+            <div
+              key={idx}
+              className="w-full flex-shrink-0 flex flex-col items-center text-center px-6"
             >
-              <div className="text-gray-300 mb-4 text-lg italic">
-                “{testimonial.quote}”
+              <FaQuoteLeft className="text-4xl text-yellow-400 mb-4" />
+              <p className={`${oxanium.className} text-lg italic max-w-xl`}>
+                {r.review}
+              </p>
+              <div className="flex text-yellow-400 mt-4 mb-2">
+                {[...Array(5)].map((_, i) => (
+                  <FaStar key={i} />
+                ))}
               </div>
-              <div className="font-bold text-white">{testimonial.title}</div>
-              <div className={`text-sm ${index % 2 === 0 ? 'text-cyan-400' : 'text-amber-400'}`}>
-                {testimonial.source}
-              </div>
-            </motion.div>
+              <h3
+                className={`${orbitron.className} text-xl font-semibold mt-2`}
+              >
+                {r.name}
+              </h3>
+              <p className={`${oxanium.className} text-sm text-gray-400`}>
+                {r.role}
+              </p>
+            </div>
           ))}
         </div>
       </div>
-    </section>
+
+      {/* Dots for navigation */}
+      <div className="flex mt-6 space-x-2">
+        {reviews.map((_, idx) => (
+          <div
+            key={idx}
+            className={`w-3 h-3 rounded-full ${
+              current === idx ? "bg-yellow-400" : "bg-gray-600"
+            }`}
+          ></div>
+        ))}
+      </div>
+    </div>
   );
 }
