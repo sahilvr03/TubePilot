@@ -17,7 +17,7 @@ export default function PricingSection({ title, plans }) {
   };
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white">
+    <section className="py-20 px-4 sm:px-6 lg:px-8  text-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
