@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import dynamic from "next/dynamic";
+import Particles from "react-tsparticles";
+import { loadSlim } from "tsparticles-slim";
 import { Orbitron, Oxanium } from "next/font/google";
 
+// Fonts
 const orbitron = Orbitron({
   subsets: ["latin"],
   weight: ["400", "700", "800", "900"],
@@ -14,45 +16,22 @@ const oxanium = Oxanium({
   weight: ["400", "600", "700"],
 });
 
+// Lazy load Lottie
+const DotLottieReact = dynamic(
+  () => import("@lottiefiles/dotlottie-react").then((m) => m.DotLottieReact),
+  { ssr: false }
+);
+
 export default function HeroSection() {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js";
-    script.onload = () => {
-      if (window.particlesJS) {
-        window.particlesJS("particles-js", {
-          particles: {
-            number: { value: 90, density: { enable: true, value_area: 800 } },
-            color: { value: ["#06b6d4", "#3b82f6", "#f43f5e"] },
-            shape: { type: "circle" },
-            opacity: { value: 0.4, random: true },
-            size: { value: 3, random: true },
-            line_linked: {
-              enable: true,
-              distance: 140,
-              color: "#3b82f6",
-              opacity: 0.25,
-              width: 1,
-            },
-            move: { enable: true, speed: 1, out_mode: "out" },
-          },
-          interactivity: {
-            detect_on: "canvas",
-            events: { onhover: { enable: true, mode: "grab" } },
-            modes: { grab: { distance: 150, line_linked: { opacity: 0.5 } } },
-          },
-          retina_detect: true,
-        });
-      }
-    };
-    document.body.appendChild(script);
-    return () => document.body.removeChild(script);
-  }, []);
+  // Init particles (no types needed)
+  const particlesInit = async (engine) => {
+    await loadSlim(engine);
+  };
 
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center px-6 sm:px-10 pt-20"
+      className="relative min-h-screen flex items-center justify-center px-6 sm:px-10 pt-20 overflow-hidden"
     >
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -123,13 +102,13 @@ export default function HeroSection() {
             className="relative flex flex-col items-center justify-center"
           >
             {/* Lottie Animation */}
-            <div className="w-full max-w-[450px] aspect-square">
+            <div className="w-full max-w-[380px] sm:max-w-[450px] aspect-square">
               <DotLottieReact
                 src="/animations/new.json"
                 loop
                 autoplay
-                renderer="svg"
-                rendererSettings={{ preserveAspectRatio: "xMidYMid meet" }}
+                renderer="canvas" // smoother on mobile
+                rendererSettings={{ preserveAspectRatio: "xMidYMid slice" }}
               />
             </div>
 
@@ -158,17 +137,14 @@ export default function HeroSection() {
             </motion.div>
 
             {/* Glow Effects */}
-            <div className="absolute -bottom-6 -left-6 w-28 h-28 bg-cyan-500/20 rounded-full blur-3xl" />
-            <div className="absolute -top-6 -right-6 w-32 h-32 bg-pink-600/20 rounded-full blur-3xl" />
+            <div className="absolute -bottom-6 -left-6 w-24 sm:w-28 h-24 sm:h-28 bg-cyan-500/20 rounded-full blur-3xl" />
+            <div className="absolute -top-6 -right-6 w-28 sm:w-32 h-28 sm:h-32 bg-pink-600/20 rounded-full blur-3xl" />
           </motion.div>
         </div>
       </div>
 
-      {/* Particle Background */}
-      <div
-        id="particles-js"
-        className="absolute w-full h-full z-0 opacity-90"
-      />
+
+   
     </section>
   );
 }
