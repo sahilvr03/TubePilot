@@ -58,23 +58,23 @@ export function PricingCard({ plan, index, openModal }) {
         className="relative bg-gradient-to-br from-[#111]/90 to-[#1a1a1a]/90 backdrop-blur-sm 
                    p-6 sm:p-8 rounded-2xl border border-cyan-500/30 shadow-lg 
                    hover:shadow-cyan-400/40 transition-all overflow-hidden group 
-                   flex flex-col h-full"
+                   flex flex-col h-full "
       >
         {/* Glow */}
         <div className="absolute inset-0 rounded-2xl border border-transparent bg-gradient-to-r from-cyan-500 to-pink-500 opacity-20 blur-md group-hover:opacity-40 transition-all -z-10" />
 
-        {/* Title */}
-        <h3
-          className={`${orbitron.className} text-xl sm:text-2xl font-extrabold mb-3 text-white flex items-center gap-2`}
-        >
-          <span className="text-xl sm:text-2xl">
-            {index === 0 ? "🚀" : index === 1 ? "🔥" : "✨"}
-          </span>
-          {plan.name}
-        </h3>
+{/* Title */}
+<h3
+  className={`${orbitron.className} text-xl sm:text-2xl font-extrabold mb-3 text-white flex items-center gap-2 justify-center sm:justify-start`}
+>
+  <span className="text-xl sm:text-2xl">
+    {index === 0 ? "🚀" : index === 1 ? "🔥" : "✨"}
+  </span>
+  {plan.name}
+</h3>
 
 {/* Price Section */}
-<div className="mb-4">
+<div className="mb-4 text-center sm:text-left">
   {basePrice && (
     <p className={`${oxanium.className} text-lg sm:text-xl text-gray-400 line-through`}>
       {Array.isArray(basePrice)
@@ -82,41 +82,32 @@ export function PricingCard({ plan, index, openModal }) {
         : `$${Math.round(basePrice * 1.2)}`}
     </p>
   )}
-
   <p className={`${oxanium.className} text-3xl sm:text-4xl font-bold text-cyan-300`}>
     {plan.price}
   </p>
 </div>
 
+{/* Features */}
+<ul
+  className={`${oxanium.className} space-y-2 sm:space-y-3 mb-6 flex-1 text-center sm:text-left`}
+>
+  {plan.features.slice(0, 3).map((feature, fIndex) => (
+    <motion.li
+      key={feature}
+      whileHover={{ scale: 1.05, x: 5 }}
+      transition={{ type: "spring", stiffness: 300 }}
+      className="flex items-center sm:items-start justify-center sm:justify-start text-sm sm:text-base text-gray-300"
+    >
+      <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400 mr-2 group-hover:animate-pulse" />
+      {feature}
+      {fIndex === 0 ? " 🎯" : fIndex === 1 ? " ⚡" : " 💡"}
+    </motion.li>
+  ))}
+  {plan.features.length > 3 && (
+    <li className="text-gray-400 italic text-sm sm:text-base">+ more...</li>
+  )}
+</ul>
 
-        {/* Total price if AI added */}
-        {selectedOption && totalPrice && (
-          <p className={`${oxanium.className} text-base sm:text-lg font-semibold text-pink-400 mb-4`}>
-            Total with {selectedOption === "assistant" ? "AI Assistant" : "Full AI"}:{" "}
-            {Array.isArray(totalPrice)
-              ? `$${totalPrice[0]} - $${totalPrice[1]}`
-              : `$${totalPrice}`}
-          </p>
-        )}
-
-        {/* Features (only first 3 in card) */}
-        <ul className={`${oxanium.className} space-y-2 sm:space-y-3 mb-6 flex-1`}>
-          {plan.features.slice(0, 3).map((feature, fIndex) => (
-            <motion.li
-              key={feature}
-              whileHover={{ scale: 1.05, x: 5 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="flex items-center text-sm sm:text-base text-gray-300"
-            >
-              <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400 mr-2 group-hover:animate-pulse" />
-              {feature}
-              {fIndex === 0 ? " 🎯" : fIndex === 1 ? " ⚡" : " 💡"}
-            </motion.li>
-          ))}
-          {plan.features.length > 3 && (
-            <li className="text-gray-400 italic text-sm sm:text-base">+ more...</li>
-          )}
-        </ul>
 
 {/* AI Options (hide if AI package) */}
 {plan.name.toLowerCase().includes("ai") ? null : (

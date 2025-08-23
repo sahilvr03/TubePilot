@@ -30,8 +30,8 @@ const saasPlans = [
   },
   { 
     name: "SaaS Enterprise", 
-    price: "Custom $1599 - $3000", 
-    oldPrice: "$3500",
+    price: "$2500 & upto", 
+    oldPrice: "$3500 & upto",
     features: ["Custom Modules", "White-Label", "Dedicated Support"] 
   },
 ];
@@ -55,14 +55,33 @@ const aiPlans = [
   { 
     name: "AI Assistant Package", 
     price: "$299", 
-    features: ["AI Chatbot for Web/App", "Product Recommendation AI", "Smart Search Integration"] 
+    features: [
+      "AI Chatbot for Web/App", 
+      "Product Recommendation AI", 
+      "Smart Search Integration"
+    ] 
   },
   { 
     name: "AI Software Integration", 
     price: "$599", 
-    features: ["AI Analytics Dashboard", "Predictive Insights", "Automated Workflows & Reports"] 
+    features: [
+      "AI Analytics Dashboard", 
+      "Predictive Insights", 
+      "Automated Workflows & Reports"
+    ] 
   },
+  { 
+    name: "AI Model Training Package", 
+    price: "$999", 
+    features: [
+      "Custom AI Model Development", 
+      "Data Preprocessing & Cleaning", 
+      "Model Training & Optimization", 
+      "Deployment Ready Pipelines"
+    ] 
+  }
 ];
+
 
 const marketingPlans = [
   { 
@@ -250,8 +269,8 @@ const bundlePlans = [
       {renderSection("AI Packages", aiPlans)}
       {renderSection("Mobile Application Plans", mobilePlans)}
       {renderSection("Marketing Packages", marketingPlans)}
-      {renderSection("Full-Service Bundles", bundlePlans)}
       {renderSection("SaaS AI Products", saasPlans)}
+      {renderSection("Full-Service Bundles", bundlePlans)}
 
       {/* Modal for collecting user info */}
       <PlanModal

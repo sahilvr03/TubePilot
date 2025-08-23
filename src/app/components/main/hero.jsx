@@ -201,32 +201,51 @@ export default function HeroSection() {
   <div className="bg-gradient-to-r from-gray-800/60 via-gray-900/80 to-gray-800/60 
                   rounded-xl border border-gray-700/50 shadow-lg backdrop-blur-md py-6">
     <motion.div
-      className="flex gap-12 items-center"
-      animate={{ x: ["0%", "-100%"] }}
+      className="flex items-center will-change-transform"
+      animate={{ x: ["0%", "-100%"] }} // shift by full width of first row
       transition={{
         repeat: Infinity,
-        duration: 30, // smooth and continuous
+        duration: 10, // adjust speed
         ease: "linear",
       }}
     >
-      {/* Duplicate rows back-to-back for seamless loop */}
-      {[...Array(2)].map((_, rowIndex) => (
-        <div key={rowIndex} className="flex gap-12">
-          {techLogos.map((tech, i) => (
-            <div key={i} className="flex-shrink-0 flex flex-col items-center">
-              <img
-                src={tech.url}
-                alt={tech.name}
-                className="w-14 h-14 object-contain drop-shadow-[0_0_8px_rgba(0,255,255,0.3)]"
-              />
-              <span className="text-sm text-gray-300 mt-2">{tech.name}</span>
-            </div>
-          ))}
-        </div>
-      ))}
+      {/* One full row */}
+      <div className="flex gap-12 flex-shrink-0">
+        {techLogos.map((tech, i) => (
+          <div 
+            key={i} 
+            className="flex flex-col items-center flex-shrink-0 transition-transform duration-300 hover:scale-110"
+          >
+            <img
+              src={tech.url}
+              alt={tech.name}
+              className="w-14 h-14 object-contain drop-shadow-[0_0_8px_rgba(0,255,255,0.3)]"
+            />
+            <span className="text-sm text-gray-300 mt-2">{tech.name}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Duplicate row for seamless loop */}
+      <div className="flex gap-12 flex-shrink-0">
+        {techLogos.map((tech, i) => (
+          <div 
+            key={`dup-${i}`} 
+            className="flex flex-col items-center flex-shrink-0 transition-transform duration-300 hover:scale-110"
+          >
+            <img
+              src={tech.url}
+              alt={tech.name}
+              className="w-14 h-14 object-contain drop-shadow-[0_0_8px_rgba(0,255,255,0.3)]"
+            />
+            <span className="text-sm text-gray-300 mt-2">{tech.name}</span>
+          </div>
+        ))}
+      </div>
     </motion.div>
   </div>
 </div>
+
 
 
     </section>
