@@ -17,8 +17,7 @@ export const metadata = {
   description: "Turning Vision Into Scalable Software",
    icons: {
     icon: "/favicon.png", // default
-    shortcut: "/favicon-16x16.png", // optional
-    apple: "/apple-touch-icon.png", // optional
+    
   },
 };
 
