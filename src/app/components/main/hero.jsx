@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
-import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 import { Orbitron, Oxanium } from "next/font/google";
 
@@ -15,6 +14,60 @@ const oxanium = Oxanium({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
 });
+
+// Tech Logos
+const techLogos = [
+  // 🌐 Frontend
+  { name: "React", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/react/react-original.svg" },
+  { name: "Next.js", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/nextjs/nextjs-original-wordmark.svg" },
+  { name: "Vue.js", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/vuejs/vuejs-original.svg" },
+  { name: "Angular", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/angularjs/angularjs-original.svg" },
+{ name: "TailwindCSS", url: "https://cdn.jsdelivr.net/npm/simple-icons@15.11.0/icons/tailwindcss.svg" },
+  { name: "Bootstrap", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/bootstrap/bootstrap-original.svg" },
+  { name: "Sass", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/sass/sass-original.svg" },
+
+  // ⚙️ Backend
+  { name: "Node.js", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/nodejs/nodejs-original.svg" },
+  { name: "Express", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/express/express-original-wordmark.svg" }, 
+  { name: "Django", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/django/django-plain.svg" },
+  { name: "Flask", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/flask/flask-original-wordmark.svg" },
+  { name: "Spring Boot", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/spring/spring-original.svg" },
+  { name: "PHP", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/php/php-original.svg" },
+  { name: "Laravel", url: "https://cdn.jsdelivr.net/npm/simple-icons@15.11.0/icons/laravel.svg" },
+
+
+  // 🤖 AI / ML
+  { name: "TensorFlow", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/tensorflow/tensorflow-original.svg" },
+  { name: "PyTorch", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/pytorch/pytorch-original.svg" },
+  { name: "Scikit-learn", url: "https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" },
+  { name: "Pandas", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/pandas/pandas-original.svg" },
+  { name: "NumPy", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/numpy/numpy-original.svg" },
+
+  // 🛢 Databases
+  { name: "PostgreSQL", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/postgresql/postgresql-original.svg" },
+  { name: "MongoDB", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/mongodb/mongodb-original.svg" },
+  { name: "MySQL", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/mysql/mysql-original.svg" },
+  { name: "SQLite", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/sqlite/sqlite-original.svg" },
+  { name: "Redis", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/redis/redis-original.svg" },
+
+  // ☁️ Cloud & DevOps
+  { name: "Docker", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/docker/docker-original.svg" },
+  { name: "Kubernetes", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/kubernetes/kubernetes-plain.svg" },
+  { name: "AWS", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/amazonwebservices/amazonwebservices-original.svg" },
+  { name: "Azure", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/azure/azure-original.svg" },
+  { name: "Google Cloud", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/googlecloud/googlecloud-original.svg" },
+  { name: "GitHub Actions", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/github/github-original.svg" },
+  { name: "Jenkins", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/jenkins/jenkins-original.svg" },
+
+  // 🛠 Tools & Others
+  { name: "Git", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/git/git-original.svg" },
+  { name: "GitHub", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/github/github-original.svg" },
+  { name: "Figma", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/figma/figma-original.svg" },
+  { name: "VS Code", url: "https://raw.githubusercontent.com/devicons/devicon/v2.17.0/icons/vscode/vscode-original.svg" },
+  { name: "Postman", url: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" },
+];
+
+
 
 // Lazy load Lottie
 const DotLottieReact = dynamic(
@@ -31,7 +84,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center px-6 sm:px-10 pt-20 overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center px-6 sm:px-10 pt-20 overflow-hidden"
     >
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -107,7 +160,7 @@ export default function HeroSection() {
                 src="/animations/new.json"
                 loop
                 autoplay
-                renderer="canvas" // smoother on mobile
+                renderer="canvas"
                 rendererSettings={{ preserveAspectRatio: "xMidYMid slice" }}
               />
             </div>
@@ -143,8 +196,39 @@ export default function HeroSection() {
         </div>
       </div>
 
+{/* 🚂 Moving Tech Logos Infinite Row */}
+<div className="relative w-full overflow-hidden mt-12">
+  <div className="bg-gradient-to-r from-gray-800/60 via-gray-900/80 to-gray-800/60 
+                  rounded-xl border border-gray-700/50 shadow-lg backdrop-blur-md py-6">
+    <motion.div
+      className="flex gap-12 items-center"
+      animate={{ x: ["0%", "-100%"] }}
+      transition={{
+        repeat: Infinity,
+        duration: 30, // smooth and continuous
+        ease: "linear",
+      }}
+    >
+      {/* Duplicate rows back-to-back for seamless loop */}
+      {[...Array(2)].map((_, rowIndex) => (
+        <div key={rowIndex} className="flex gap-12">
+          {techLogos.map((tech, i) => (
+            <div key={i} className="flex-shrink-0 flex flex-col items-center">
+              <img
+                src={tech.url}
+                alt={tech.name}
+                className="w-14 h-14 object-contain drop-shadow-[0_0_8px_rgba(0,255,255,0.3)]"
+              />
+              <span className="text-sm text-gray-300 mt-2">{tech.name}</span>
+            </div>
+          ))}
+        </div>
+      ))}
+    </motion.div>
+  </div>
+</div>
 
-   
+
     </section>
   );
 }
