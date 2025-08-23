@@ -92,7 +92,7 @@ const DotLottieReact = dynamic(
 
 export default function HeroSection() {
   const isMobile = useMediaQuery("(max-width: 640px)");
-  const duration = isMobile ? 15 : 35;
+  const duration = isMobile ? 15 : 30;
 
   return (
     <section
