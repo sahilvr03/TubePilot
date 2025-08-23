@@ -92,7 +92,7 @@ const DotLottieReact = dynamic(
 
 export default function HeroSection() {
   const isMobile = useMediaQuery("(max-width: 640px)");
-  const duration = isMobile ? 15 : 30;
+  const duration = isMobile ? 15 : 35;
 
   return (
     <section
@@ -200,68 +200,60 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* 🚂 Moving Tech Logos Section */}
-      <div className="relative w-full overflow-hidden mt-8 sm:mt-12 px-2">
-        <div className="bg-gradient-to-r from-gray-800/60 via-gray-900/80 to-gray-800/60 rounded-xl border border-gray-700/50 shadow-lg backdrop-blur-md py-4 sm:py-6">
-          <motion.div
-            className="flex items-center will-change-transform"
-            animate={{ x: ["0%", "-350%"] }}
-            transition={{
-              repeat: Infinity,
-              duration: duration, // responsive duration
-              ease: "linear",
-            }}
-          >
-            {[...Array(2)].map((_, idx) => (
-              <div key={idx} className="flex gap-4 sm:gap-6 md:gap-8 lg:gap-10 flex-shrink-0 px-2">
-                {techLogos.map((tech, i) => (
-                  <div
-                    key={`${idx}-${i}`}
-                    className="flex flex-col items-center flex-shrink-0 transition-all duration-300 hover:scale-110 group"
-                  >
-                    <div className="relative">
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gray-800/40 rounded-xl flex items-center justify-center border border-cyan-500/20 shadow-inner">
-                        <img
-                          src={tech.url}
-                          alt={tech.name}
-                          className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 object-contain rounded-lg"
-                        />
-                      </div>
-                      {/* Tooltip */}
-                      <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gray-800/90 backdrop-blur-sm text-cyan-300 text-xs font-semibold px-2 py-1 rounded whitespace-nowrap shadow-lg border border-cyan-500/30 z-20">
-                        {tech.name}
-                      </div>
-                    </div>
-                    {/* Show name only on larger screens */}
-                    <span className="text-xs text-gray-300 mt-2 hidden sm:block font-medium">{tech.name}</span>
-                  </div>
-                ))}
+{/* 🚂 Moving Tech Logos Section */}
+<div className="relative w-full overflow-hidden mt-8 sm:mt-12 px-2">
+  <div className="relative bg-gradient-to-r from-gray-800/60 via-gray-900/80 to-gray-800/60 
+                  rounded-xl border border-cyan-500/20 shadow-lg backdrop-blur-md py-4 sm:py-6 
+                  overflow-hidden">
+    
+    {/* Logos slider */}
+    <motion.div
+      className="flex items-center will-change-transform"
+      animate={{ x: ["0%", "-350%"] }}
+      transition={{
+        repeat: Infinity,
+        duration: duration, // responsive duration
+        ease: "linear",
+      }}
+    >
+      {[...Array(2)].map((_, idx) => (
+        <div key={idx} className="flex gap-4 sm:gap-6 md:gap-8 lg:gap-10 flex-shrink-0 px-2">
+          {techLogos.map((tech, i) => (
+            <div
+              key={`${idx}-${i}`}
+              className="flex flex-col items-center flex-shrink-0 transition-all duration-300 hover:scale-110 group"
+            >
+              <div className="relative">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 
+                                bg-gray-800/40 rounded-xl flex items-center justify-center 
+                                border border-cyan-500/30 shadow-inner">
+                  <img
+                    src={tech.url}
+                    alt={tech.name}
+                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 object-contain rounded-lg"
+                  />
+                </div>
+                {/* Tooltip */}
+                <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 
+                                opacity-0 group-hover:opacity-100 transition-opacity duration-300 
+                                bg-gray-800/90 backdrop-blur-sm text-cyan-300 text-xs font-semibold 
+                                px-2 py-1 rounded whitespace-nowrap shadow-lg border border-cyan-500/30 z-20">
+                  {tech.name}
+                </div>
               </div>
-            ))}
-          </motion.div>
+              <span className="text-xs text-gray-300 mt-2 hidden sm:block font-medium">{tech.name}</span>
+            </div>
+          ))}
         </div>
+      ))}
+    </motion.div>
 
-        {/* Gradient fades for smoother edges */}
-        <div className="absolute inset-y-0 left-0 w-16 sm:w-20 bg-gradient-to-r from-gray-900 to-transparent z-10"></div>
-        <div className="absolute inset-y-0 right-0 w-16 sm:w-20 bg-gradient-to-l from-gray-900 to-transparent z-10"></div>
+    {/* Gradient fades for smoother edges (inside container, not overlapping border) */}
+    <div className="pointer-events-none absolute inset-y-0 left-0 w-8 sm:w-12 bg-gradient-to-r from-gray-900 via-gray-900/80 to-transparent"></div>
+    <div className="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-12 bg-gradient-to-l from-gray-900 via-gray-900/80 to-transparent"></div>
+  </div>
+</div>
 
-        {/* Subtle pulsing glow */}
-        <motion.div
-          className="absolute inset-0 rounded-xl pointer-events-none"
-          animate={{
-            boxShadow: [
-              "0 0 20px rgba(6, 182, 212, 0.1)",
-              "0 0 40px rgba(6, 182, 212, 0.2)",
-              "0 0 20px rgba(6, 182, 212, 0.1)",
-            ],
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: 3,
-            ease: "easeInOut",
-          }}
-        />
-      </div>
     </section>
   );
 }
