@@ -65,24 +65,25 @@ export default function Navbar() {
   initial={{ opacity: 0, x: -20 }}
   animate={{ opacity: 1, x: 0 }}
   transition={{ duration: 0.5 }}
-  className={`flex-shrink-0 flex items-center  ${orbitron.className}`}
+  className={`flex items-center space-x-2 ${orbitron.className}`}
 >
   {/* Logo */}
   <Image
-    src="/sss.png"   // 🔹 apni logo image ka path (public folder me rakho)
+    src="/sss.png"
     alt="Docoders Logo"
-    width={100}
-    height={100}
-    className="rounded-md mt-6 ml-2"
+    width={40}   // mobile size
+    height={40}
+    className="w-10 h-10 md:w-16 md:h-16 rounded-md"
   />
 
   {/* Text */}
-  <h1 className="text-3xl font-extrabold  mr-4">
+  <h1 className="text-xl md:text-3xl font-extrabold">
     <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-500 cursor-pointer">
       Docoders
     </span>
   </h1>
 </motion.div>
+
 
 
             {/* Desktop Menu */}
