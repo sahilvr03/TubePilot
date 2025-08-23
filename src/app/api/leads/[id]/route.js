@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { MongoClient, ObjectId } from "mongodb";
 
-const uri = process.env.MONGO_URI;
+const uri = process.env.MONGODB_URI;
 let client;
 let db;
 
@@ -40,6 +40,11 @@ export async function PUT(req, { params }) {
 export async function DELETE(req, { params }) {
   try {
     const { id } = params;
+
+    if (!ObjectId.isValid(id)) {
+      return NextResponse.json({ message: "Invalid ID format" }, { status: 400 });
+    }
+
     const database = await connectDB();
     const collection = database.collection("leads");
 
@@ -51,7 +56,7 @@ export async function DELETE(req, { params }) {
       return NextResponse.json({ message: "Lead not found" }, { status: 404 });
     }
   } catch (err) {
-    console.error(err);
+    console.error("DELETE error:", err);
     return NextResponse.json({ message: "Error deleting lead" }, { status: 500 });
   }
 }

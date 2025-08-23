@@ -308,7 +308,7 @@ export default function TechnologyPage() {
               <div>
                 <label className="block text-gray-300 mb-1">LinkedIn (Optional)</label>
                 <input
-                  type="url"
+                  type="text"
                   name="linkedin"
                   value={formData.linkedin}
                   onChange={handleInputChange}

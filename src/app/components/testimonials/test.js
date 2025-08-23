@@ -46,7 +46,7 @@ export default function Reviews() {
   }, []);
 
   return (
-    <div className="w-full flex flex-col items-center justify-center py-16  text-white">
+    <div className="w-full flex flex-col items-center justify-center py-16  text-white" id="testimonials">
       <h2
         className={`${orbitron.className} text-4xl font-bold mb-10 tracking-wide text-center`}
       >
