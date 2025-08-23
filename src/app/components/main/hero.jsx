@@ -87,7 +87,7 @@ export default function HeroSection() {
       className="relative min-h-screen flex flex-col items-center justify-center px-6 sm:px-10 pt-20 overflow-hidden"
     >
       <div className="relative z-10 max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-16 items-center">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -200,21 +200,22 @@ export default function HeroSection() {
 <div className="relative w-full overflow-hidden mt-12">
   <div className="bg-gradient-to-r from-gray-800/60 via-gray-900/80 to-gray-800/60 
                   rounded-xl border border-gray-700/50 shadow-lg backdrop-blur-md py-6">
+
     <motion.div
-      className="flex items-center will-change-transform"
-      animate={{ x: ["0%", "-100%"] }} // shift by full width of first row
+      className="flex whitespace-nowrap will-change-transform"
+      animate={{ x: ["0%", "-50%"] }} 
       transition={{
         repeat: Infinity,
-        duration: 10, // adjust speed
+        duration: 10, // adjust speed (lower = faster)
         ease: "linear",
       }}
     >
-      {/* One full row */}
+      {/* Full row once */}
       <div className="flex gap-12 flex-shrink-0">
         {techLogos.map((tech, i) => (
           <div 
             key={i} 
-            className="flex flex-col items-center flex-shrink-0 transition-transform duration-300 hover:scale-110"
+            className="flex flex-col items-center flex-shrink-0 transition-transform duration-500 hover:scale-110"
           >
             <img
               src={tech.url}
@@ -245,6 +246,7 @@ export default function HeroSection() {
     </motion.div>
   </div>
 </div>
+
 
 
 
