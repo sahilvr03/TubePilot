@@ -110,7 +110,7 @@ export function PricingCard({ plan, index, openModal }) {
 
 
 {/* AI Options (hide if AI package) */}
-{plan.name.toLowerCase().includes("ai") ? null : (
+{plan.name.toLowerCase().includes("ai","marketing") ? null : (
   <div className="space-y-2 mb-6">
     <label
       className="flex items-center gap-2 text-gray-300 text-sm cursor-pointer"
