@@ -193,7 +193,7 @@ const bundlePlans = [
   };
 
   const renderSection = (title, plans) => (
-    <section className="py-8 px-4 sm:px-6 lg:px-8 bg-[#0a0a0a] text-white">
+    <section className="py-8 px-4 sm:px-6 lg:px-8 text-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -224,7 +224,7 @@ const bundlePlans = [
 
   // Sales / Limited-Time Offer Section
   const renderSalesSection = () => (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-[#0a0a0a] to-[#111] text-white relative overflow-hidden">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 text-white relative overflow-hidden">
       <div className="max-w-5xl mx-auto text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
