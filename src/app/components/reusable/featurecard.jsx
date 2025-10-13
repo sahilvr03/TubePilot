@@ -14,12 +14,10 @@ const oxanium = Oxanium({
   weight: ["400", "600", "700"],
 });
 
-// Reusable Pricing Card Component
 export function PricingCard({ plan, index, openModal }) {
   const [selectedOption, setSelectedOption] = React.useState(null);
   const [showDetails, setShowDetails] = React.useState(false);
 
-  // Extract numeric price
   const getPriceValue = (priceStr) => {
     if (priceStr.toLowerCase().includes("custom")) return null;
     const nums = priceStr.match(/\d+/g);
@@ -40,7 +38,6 @@ export function PricingCard({ plan, index, openModal }) {
     }
   }
 
-  // toggle radio like checkbox
   const handleRadioChange = (e, option) => {
     e.stopPropagation();
     setSelectedOption((prev) => (prev === option ? null : option));
@@ -48,111 +45,101 @@ export function PricingCard({ plan, index, openModal }) {
 
   return (
     <>
-      {/* Pricing Card */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
         whileHover={{ y: -6, scale: 1.02 }}
-        className="relative bg-gradient-to-br from-[#111]/90 to-[#1a1a1a]/90 backdrop-blur-sm 
-                   p-6 sm:p-8 rounded-2xl border border-cyan-500/30 shadow-lg 
-                   hover:shadow-cyan-400/40 transition-all overflow-hidden group 
+        className="relative  backdrop-blur-sm 
+                   p-6 sm:p-8 rounded-2xl border border-gray-200 shadow-lg 
+                   hover:shadow-cyan-200/50 transition-all overflow-hidden group 
                    flex flex-col h-full "
       >
-        {/* Glow */}
-        <div className="absolute inset-0 rounded-2xl border border-transparent bg-gradient-to-r from-cyan-500 to-pink-500 opacity-20 blur-md group-hover:opacity-40 transition-all -z-10" />
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500/5 to-pink-500/5 -z-10" />
 
-{/* Title */}
-<h3
-  className={`${orbitron.className} text-xl sm:text-2xl font-extrabold mb-3 text-white flex items-center gap-2 justify-center sm:justify-start`}
->
-  <span className="text-xl sm:text-2xl">
-    {index === 0 ? "🚀" : index === 1 ? "🔥" : "✨"}
-  </span>
-  {plan.name}
-</h3>
+        <h3
+          className={`${orbitron.className} text-xl sm:text-2xl font-extrabold mb-3 text-gray-900 flex items-center gap-2 justify-center sm:justify-start`}
+        >
+          <span className="text-xl sm:text-2xl">
+            {index === 0 ? "🚀" : index === 1 ? "🔥" : "✨"}
+          </span>
+          {plan.name}
+        </h3>
 
-{/* Price Section */}
-<div className="mb-4 text-center sm:text-left">
-  {basePrice && (
-    <p className={`${oxanium.className} text-lg sm:text-xl text-gray-400 line-through`}>
-      {Array.isArray(basePrice)
-        ? `$${Math.round(basePrice[0] * 1.2)} - $${Math.round(basePrice[1] * 1.2)}`
-        : `$${Math.round(basePrice * 1.2)}`}
-    </p>
-  )}
-  <p className={`${oxanium.className} text-3xl sm:text-4xl font-bold text-cyan-300`}>
-    {plan.price}
-  </p>
-</div>
+        <div className="mb-4 text-center sm:text-left">
+          {basePrice && (
+            <p className={`${oxanium.className} text-lg sm:text-xl text-gray-500 line-through`}>
+              {Array.isArray(basePrice)
+                ? `$${Math.round(basePrice[0] * 1.2)} - $${Math.round(basePrice[1] * 1.2)}`
+                : `$${Math.round(basePrice * 1.2)}`}
+            </p>
+          )}
+          <p className={`${oxanium.className} text-3xl sm:text-4xl font-bold text-cyan-600`}>
+            {plan.price}
+          </p>
+        </div>
 
-{/* Features */}
-<ul
-  className={`${oxanium.className} space-y-2 sm:space-y-3 mb-6 flex-1 text-center sm:text-left`}
->
-  {plan.features.slice(0, 3).map((feature, fIndex) => (
-    <motion.li
-      key={feature}
-      whileHover={{ scale: 1.05, x: 5 }}
-      transition={{ type: "spring", stiffness: 300 }}
-      className="flex items-center sm:items-start justify-center sm:justify-start text-sm sm:text-base text-gray-300"
-    >
-      <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400 mr-2 group-hover:animate-pulse" />
-      {feature}
-      {fIndex === 0 ? " 🎯" : fIndex === 1 ? " ⚡" : " 💡"}
-    </motion.li>
-  ))}
-  {plan.features.length > 3 && (
-    <li className="text-gray-400 italic text-sm sm:text-base">+ more...</li>
-  )}
-</ul>
+        <ul
+          className={`${oxanium.className} space-y-2 sm:space-y-3 mb-6 flex-1 text-center sm:text-left`}
+        >
+          {plan.features.slice(0, 3).map((feature, fIndex) => (
+            <motion.li
+              key={feature}
+              whileHover={{ scale: 1.05, x: 5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="flex items-center sm:items-start justify-center sm:justify-start text-sm sm:text-base text-gray-700"
+            >
+              <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-500 mr-2 group-hover:animate-pulse" />
+              {feature}
+              {fIndex === 0 ? " 🎯" : fIndex === 1 ? " ⚡" : " 💡"}
+            </motion.li>
+          ))}
+          {plan.features.length > 3 && (
+            <li className="text-gray-500 italic text-sm sm:text-base">+ more...</li>
+          )}
+        </ul>
 
+        {plan.name.toLowerCase().includes("ai") || plan.name.toLowerCase().includes("marketing") ? null : (
+          <div className="space-y-2 mb-6 bg-gray-50 p-4 rounded-lg">
+            <label
+              className="flex items-center gap-2 text-gray-700 text-sm cursor-pointer"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <input
+                type="checkbox"
+                checked={selectedOption === "assistant"}
+                onChange={() =>
+                  setSelectedOption((prev) => (prev === "assistant" ? null : "assistant"))
+                }
+                className="accent-cyan-500 w-4 h-4 sm:w-5 sm:h-5"
+              />
+              AI Assistant ($299)
+            </label>
+            <label
+              className="flex items-center gap-2 text-gray-700 text-sm cursor-pointer"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <input
+                type="checkbox"
+                checked={selectedOption === "full"}
+                onChange={() =>
+                  setSelectedOption((prev) => (prev === "full" ? null : "full"))
+                }
+                className="accent-cyan-500 w-4 h-4 sm:w-5 sm:h-5"
+              />
+              AI INTEGRATION + AI ASSISTANT ($499)
+            </label>
+          </div>
+        )}
 
-{/* AI Options (hide if AI package) */}
-{plan.name.toLowerCase().includes("ai","marketing") ? null : (
-  <div className="space-y-2 mb-6">
-    <label
-      className="flex items-center gap-2 text-gray-300 text-sm cursor-pointer"
-      onClick={(e) => e.stopPropagation()}
-    >
-      <input
-        type="checkbox"
-        checked={selectedOption === "assistant"}
-        onChange={() =>
-          setSelectedOption((prev) => (prev === "assistant" ? null : "assistant"))
-        }
-        className="accent-cyan-500 w-4 h-4 sm:w-5 sm:h-5"
-      />
-      AI Assistant ($299)
-    </label>
-    <label
-      className="flex items-center gap-2 text-gray-300 text-sm cursor-pointer"
-      onClick={(e) => e.stopPropagation()}
-    >
-      <input
-        type="checkbox"
-        checked={selectedOption === "full"}
-        onChange={() =>
-          setSelectedOption((prev) => (prev === "full" ? null : "full"))
-        }
-        className="accent-cyan-500 w-4 h-4 sm:w-5 sm:h-5"
-      />
-       AI INTEGRATION + AI ASSISTANT  ($499)
-    </label>
-  </div>
-)}
-
-
-        {/* Details Button */}
         <button
           onClick={() => setShowDetails(true)}
-          className="w-full py-2 text-xs sm:text-sm text-cyan-400 border cursor-pointer border-cyan-400/40 rounded-lg hover:bg-cyan-500/10 transition-all"
+          className="w-full py-2 text-xs sm:text-sm text-cyan-600 border cursor-pointer border-cyan-300/50 rounded-lg hover:bg-cyan-50 transition-all"
         >
           View Details
         </button>
 
-        {/* CTA Button (open form) */}
         <motion.button
           whileHover={{
             scale: 1.05,
@@ -166,42 +153,41 @@ export function PricingCard({ plan, index, openModal }) {
         </motion.button>
       </motion.div>
 
-      {/* Detail Modal */}
       {showDetails && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-black/30 flex items-center justify-center z-50"
         >
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="bg-[#1a1a1a] p-6 sm:p-8 rounded-2xl w-full max-w-sm sm:max-w-lg mx-4 relative border border-cyan-500/30"
+            className="bg-white p-6 sm:p-8 rounded-2xl w-full max-w-sm sm:max-w-lg mx-4 relative border border-gray-200 shadow-2xl"
           >
             <button
               onClick={() => setShowDetails(false)}
-              className="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-400 hover:text-white"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-500 hover:text-gray-900"
             >
               <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
 
-            <h3 className={`${orbitron.className} text-xl sm:text-2xl font-extrabold text-cyan-400 mb-4`}>
+            <h3 className={`${orbitron.className} text-xl sm:text-2xl font-extrabold text-cyan-600 mb-4`}>
               {plan.name} - Details
             </h3>
 
-            <p className="text-gray-300 mb-4">{plan.price}</p>
+            <p className="text-gray-700 mb-4">{plan.price}</p>
 
-            <ul className="space-y-2 text-sm sm:text-base text-gray-300 mb-6">
+            <ul className="space-y-2 text-sm sm:text-base text-gray-700 mb-6">
               {plan.features.map((f, i) => (
                 <li key={i} className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400" />
+                  <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-500" />
                   {f}
                 </li>
               ))}
             </ul>
 
             {selectedOption && totalPrice && (
-              <p className="text-pink-400 font-bold mb-6 text-sm sm:text-base">
+              <p className="text-pink-600 font-bold mb-6 text-sm sm:text-base">
                 Total Price:{" "}
                 {Array.isArray(totalPrice)
                   ? `$${totalPrice[0]} - $${totalPrice[1]}`
@@ -215,7 +201,6 @@ export function PricingCard({ plan, index, openModal }) {
   );
 }
 
-// Modal (Form)
 export function PlanModal({
   isOpen,
   onClose,
@@ -242,64 +227,64 @@ export function PlanModal({
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.8, opacity: 0 }}
-          className="bg-[#1a1a1a] p-6 sm:p-8 rounded-2xl w-full max-w-sm sm:max-w-md mx-4 relative border border-cyan-500/30"
+          className="bg-white p-6 sm:p-8 rounded-2xl w-full max-w-sm sm:max-w-md mx-4 relative border border-gray-200 shadow-2xl"
         >
           <button
             onClick={onClose}
-            className="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-400 hover:text-white"
+            className="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-500 hover:text-gray-900"
           >
             <X className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
           <h3
-            className={`${orbitron.className} text-xl sm:text-2xl font-extrabold text-cyan-400 mb-6`}
+            className={`${orbitron.className} text-xl sm:text-2xl font-extrabold text-cyan-600 mb-6`}
           >
             Avail {formData.plan}
           </h3>
           <form onSubmit={handleSubmit} className={`${oxanium.className} space-y-4`}>
             <div>
-              <label className="block text-gray-300 mb-1 text-sm sm:text-base">Name</label>
+              <label className="block text-gray-700 mb-1 text-sm sm:text-base">Name</label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
                 required
-                className="w-full px-3 sm:px-4 py-2 bg-[#111] text-white rounded-lg border border-cyan-500/30 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm sm:text-base"
+                className="w-full px-3 sm:px-4 py-2 bg-gray-50 text-gray-900 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm sm:text-base"
                 placeholder="Your Name"
               />
             </div>
             <div>
-              <label className="block text-gray-300 mb-1 text-sm sm:text-base">Email</label>
+              <label className="block text-gray-700 mb-1 text-sm sm:text-base">Email</label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="w-full px-3 sm:px-4 py-2 bg-[#111] text-white rounded-lg border border-cyan-500/30 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm sm:text-base"
+                className="w-full px-3 sm:px-4 py-2 bg-gray-50 text-gray-900 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm sm:text-base"
                 placeholder="Your Email"
               />
             </div>
             <div>
-              <label className="block text-gray-300 mb-1 text-sm sm:text-base">Phone Number</label>
+              <label className="block text-gray-700 mb-1 text-sm sm:text-base">Phone Number</label>
               <input
                 type="tel"
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
                 required
-                className="w-full px-3 sm:px-4 py-2 bg-[#111] text-white rounded-lg border border-cyan-500/30 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm sm:text-base"
+                className="w-full px-3 sm:px-4 py-2 bg-gray-50 text-gray-900 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm sm:text-base"
                 placeholder="Your Phone Number"
               />
             </div>
             <div>
-              <label className="block text-gray-300 mb-1 text-sm sm:text-base">LinkedIn (Optional)</label>
+              <label className="block text-gray-700 mb-1 text-sm sm:text-base">LinkedIn (Optional)</label>
               <input
                 type="text"
                 name="linkedin"
                 value={formData.linkedin}
                 onChange={handleInputChange}
-                className="w-full px-3 sm:px-4 py-2 bg-[#111] text-white rounded-lg border border-cyan-500/30 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm sm:text-base"
+                className="w-full px-3 sm:px-4 py-2 bg-gray-50 text-gray-900 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-500 text-sm sm:text-base"
                 placeholder="Your LinkedIn Profile"
               />
             </div>
@@ -314,7 +299,7 @@ export function PlanModal({
             </motion.button>
           </form>
           {submitMessage && (
-            <p className={`${oxanium.className} mt-4 text-center text-gray-300 text-sm sm:text-base`}>
+            <p className={`${oxanium.className} mt-4 text-center text-gray-700 text-sm sm:text-base`}>
               {submitMessage}
             </p>
           )}

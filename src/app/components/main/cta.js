@@ -18,25 +18,24 @@ const oxanium = Oxanium({
 export default function CTA() {
   return (
     <div>
-      {/* Call to Action */}
       <section
         id="contact"
-        className="relative py-32 px-4 sm:px-6 lg:px-8 text-center"
+        className="relative py-32 px-4 sm:px-6 lg:px-8 text-center "
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto bg-[#111]/80 backdrop-blur-xl p-12 rounded-2xl shadow-2xl border border-cyan-500/20"
+          className="max-w-4xl mx-auto bg-white/80 backdrop-blur-xl p-12 rounded-2xl shadow-2xl border border-gray-200"
         >
           <h2
-            className={`${orbitron.className} text-4xl sm:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-500`}
+            className={`${orbitron.className} text-4xl sm:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-pink-600`}
           >
             Ready to Transform Your Business?
           </h2>
           <p
-            className={`${oxanium.className} text-lg sm:text-xl text-gray-400 mb-8 leading-relaxed`}
+            className={`${oxanium.className} text-lg sm:text-xl text-gray-700 mb-8 leading-relaxed`}
           >
             Partner with us to leverage AI-driven SaaS, e-commerce, mobile apps,
             and IoT solutions for your business growth.
@@ -55,11 +54,9 @@ export default function CTA() {
         </motion.div>
       </section>
 
-      {/* Footer */}
-      <footer className="relative py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-800 bg-[#0a0a0a]">
+      <footer className="relative py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-200 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            {/* Logo + name */}
             <div className="mb-6 md:mb-0">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -76,13 +73,12 @@ export default function CTA() {
                 />
               </motion.div>
               <p
-                className={`${orbitron.className} text-gray-400 mt-2 text-xl`}
+                className={`${orbitron.className} text-gray-600 mt-2 text-xl`}
               >
                 DoCoders
               </p>
             </div>
 
-            {/* Social links */}
             <div className="flex space-x-6">
               <motion.a
                 whileHover={{
@@ -93,7 +89,7 @@ export default function CTA() {
                 href="https://www.linkedin.com/company/docoder/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${oxanium.className} text-gray-500 hover:text-cyan-400 transition-colors flex items-center gap-2`}
+                className={`${oxanium.className} text-gray-600 hover:text-cyan-600 transition-colors flex items-center gap-2`}
               >
                 <Linkedin size={20} /> LinkedIn
               </motion.a>
@@ -106,7 +102,7 @@ export default function CTA() {
                 href="https://www.instagram.com/docoders03"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${oxanium.className} text-gray-500 hover:text-pink-400 transition-colors flex items-center gap-2`}
+                className={`${oxanium.className} text-gray-600 hover:text-pink-600 transition-colors flex items-center gap-2`}
               >
                 <Instagram size={20} /> Instagram
               </motion.a>
@@ -117,22 +113,21 @@ export default function CTA() {
                   textShadow: "0 0 8px rgba(34,211,238,0.8)",
                 }}
                 href="mailto:docoder@docoders.com"
-                className={`${oxanium.className} text-gray-500 hover:text-cyan-400 transition-colors flex items-center gap-2`}
+                className={`${oxanium.className} text-gray-600 hover:text-cyan-600 transition-colors flex items-center gap-2`}
               >
                 <Mail size={20} /> Email
               </motion.a>
             </div>
           </div>
 
-          {/* Contact Info */}
           <div
-            className={`${oxanium.className} mt-8 text-center text-gray-400 space-y-2 text-sm sm:text-base`}
+            className={`${oxanium.className} mt-8 text-center text-gray-600 space-y-2 text-sm sm:text-base`}
           >
             <p>
               📩 General:{" "}
               <a
                 href="mailto:docoder@docoders.com"
-                className="hover:text-cyan-400"
+                className="hover:text-cyan-600"
               >
                 docoder@docoders.com
               </a>
@@ -141,7 +136,7 @@ export default function CTA() {
               🦾 Support:{" "}
               <a
                 href="mailto:support@docoder.com"
-                className="hover:text-cyan-400"
+                className="hover:text-cyan-600"
               >
                 support@docoder.com
               </a>
@@ -150,16 +145,15 @@ export default function CTA() {
               ℹ Info:{" "}
               <a
                 href="mailto:info@docoder.com"
-                className="hover:text-cyan-400"
+                className="hover:text-cyan-600"
               >
                 info@docoder.com
               </a>
             </p>
           </div>
 
-          {/* Bottom copyright */}
           <div
-            className={`${oxanium.className} mt-8 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm`}
+            className={`${oxanium.className} mt-8 pt-8 border-t border-gray-200 text-center text-gray-500 text-sm`}
           >
             © {new Date().getFullYear()} TechTrend Innovations. All rights
             reserved.

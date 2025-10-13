@@ -6,11 +6,11 @@ import emailjs from "@emailjs/browser";
 import { Menu, X } from "lucide-react";
 import { Orbitron, Oxanium } from "next/font/google";
 import Image from "next/image";
+
 const orbitron = Orbitron({
   subsets: ["latin"],
   weight: ["400", "700", "800", "900"],
 });
-
 const oxanium = Oxanium({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
@@ -32,15 +32,15 @@ export default function Navbar() {
 
     emailjs
       .send(
-        "your_service_id", // 🔹 Replace with EmailJS service ID
-        "your_template_id", // 🔹 Replace with EmailJS template ID
+        "your_service_id",
+        "your_template_id",
         {
           from_name: formData.name,
           reply_to: formData.email,
           message: formData.message,
-          to_email: "docoder@docoders.com", // 🔹 Destination email
+          to_email: "docoder@docoders.com",
         },
-        "your_public_key" // 🔹 Replace with your EmailJS public key
+        "your_public_key"
       )
       .then(
         () => {
@@ -55,44 +55,35 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Navbar */}
-      <nav className="fixed w-full z-50 backdrop-blur-md bg-gray-950/80 border-b border-cyan-500/20 shadow-md">
+      <nav className="fixed w-full z-50 backdrop-blur-md bg-white/90 border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-8 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            {/* Logo */}
-            {/* Logo + Text */}
-<motion.div
-  initial={{ opacity: 0, x: -20 }}
-  animate={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.5 }}
-  className={`flex items-center space-x-2 ${orbitron.className}`}
->
-  {/* Logo */}
-  <Image
-    src="/sss.png"
-    alt="Docoders Logo"
-    width={40}   // mobile size
-    height={40}
-    className="w-10 h-10 md:w-16 md:h-16 rounded-md"
-  />
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className={`flex items-center space-x-2 ${orbitron.className}`}
+            >
+              <Image
+                src="/log.png"
+                alt="Docoders Logo"
+                width={740}
+                height={740}
+                className="w-25 h-25 md:w-36 md:h-36 rounded-md"
+              />
+              {/* <h1 className="text-xl md:text-3xl font-extrabold">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-pink-600 cursor-pointer">
+                  Docoders
+                </span>
+              </h1> */}
+            </motion.div>
 
-  {/* Text */}
-  <h1 className="text-xl md:text-3xl font-extrabold">
-    <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-pink-500 cursor-pointer">
-      Docoders
-    </span>
-  </h1>
-</motion.div>
-
-
-
-            {/* Desktop Menu */}
             <div className={`hidden md:flex items-center space-x-8 ${oxanium.className}`}>
               {["Home", "Technologies", "Testimonials", "About"].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="text-gray-300 hover:text-cyan-400 transition-colors font-medium"
+                  className="text-gray-700 hover:text-cyan-600 transition-colors font-medium"
                 >
                   {item}
                 </a>
@@ -107,11 +98,10 @@ export default function Navbar() {
               </motion.button>
             </div>
 
-            {/* Mobile Hamburger */}
             <div className="md:hidden">
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="text-gray-300 hover:text-cyan-400 focus:outline-none"
+                className="text-gray-700 hover:text-cyan-600 focus:outline-none"
               >
                 {menuOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
@@ -119,17 +109,16 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu Dropdown */}
         {menuOpen && (
           <div
-            className={`md:hidden ${oxanium.className} bg-gray-950/95 backdrop-blur-md px-4 pt-2 pb-4 space-y-3 border-t border-cyan-500/20`}
+            className={`md:hidden ${oxanium.className} bg-white/95 backdrop-blur-md px-4 pt-2 pb-4 space-y-3 border-t border-gray-200`}
           >
             {["Home", "Technologies", "Testimonials", "About"].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
                 onClick={() => setMenuOpen(false)}
-                className="block text-gray-300 hover:text-cyan-400 transition-colors font-medium"
+                className="block text-gray-700 hover:text-cyan-600 transition-colors font-medium"
               >
                 {item}
               </a>
@@ -147,15 +136,14 @@ export default function Navbar() {
         )}
       </nav>
 
-      {/* Contact Form Modal */}
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className={`bg-gray-900 p-8 rounded-2xl shadow-lg w-full max-w-lg border border-cyan-500/20 ${oxanium.className}`}
+            className={`bg-white p-8 rounded-2xl shadow-lg w-full max-w-lg border border-gray-200 ${oxanium.className}`}
           >
-            <h2 className="text-2xl font-bold text-cyan-400 mb-4">Get in Touch</h2>
+            <h2 className="text-2xl font-bold text-cyan-600 mb-4">Get in Touch</h2>
             <form onSubmit={sendEmail} className="space-y-4">
               <input
                 type="text"
@@ -164,7 +152,7 @@ export default function Navbar() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 rounded-md bg-gray-800 text-gray-200 border border-gray-700 focus:border-cyan-500 focus:ring focus:ring-cyan-500/30"
+                className="w-full px-4 py-2 rounded-md bg-gray-50 text-gray-900 border border-gray-300 focus:border-cyan-500 focus:ring focus:ring-cyan-500/30"
               />
               <input
                 type="email"
@@ -173,7 +161,7 @@ export default function Navbar() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 rounded-md bg-gray-800 text-gray-200 border border-gray-700 focus:border-cyan-500 focus:ring focus:ring-cyan-500/30"
+                className="w-full px-4 py-2 rounded-md bg-gray-50 text-gray-900 border border-gray-300 focus:border-cyan-500 focus:ring focus:ring-cyan-500/30"
               />
               <textarea
                 name="message"
@@ -182,7 +170,7 @@ export default function Navbar() {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-2 rounded-md bg-gray-800 text-gray-200 border border-gray-700 focus:border-cyan-500 focus:ring focus:ring-cyan-500/30"
+                className="w-full px-4 py-2 rounded-md bg-gray-50 text-gray-900 border border-gray-300 focus:border-cyan-500 focus:ring focus:ring-cyan-500/30"
               ></textarea>
               <button
                 type="submit"
@@ -190,11 +178,11 @@ export default function Navbar() {
               >
                 Send Message
               </button>
-              {status && <p className="text-gray-400 mt-2">{status}</p>}
+              {status && <p className="text-gray-700 mt-2">{status}</p>}
             </form>
             <button
               onClick={() => setIsOpen(false)}
-              className="mt-4 text-gray-400 hover:text-cyan-400 text-sm"
+              className="mt-4 text-gray-600 hover:text-cyan-600 text-sm"
             >
               Close
             </button>

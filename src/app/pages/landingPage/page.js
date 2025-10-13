@@ -8,11 +8,11 @@ import ParticlesBackground from "../../components/main/bg";
 
 export default function LandingPage() {
   return (
-    <div className="relative min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden">
+    <div className="relative min-h-screen text-gray-900 overflow-x-hidden">
       {/* Particles behind everything (hidden on mobile) */}
-      <div className="hidden sm:block">
+      {/* <div className="hidden sm:block">
         <ParticlesBackground />
-      </div>
+      </div> */}
 
       <div className="relative z-10">
         <Navbar />

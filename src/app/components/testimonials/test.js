@@ -25,7 +25,7 @@ const reviews = [
     name: "Emily Carter",
     role: "DJ & Performer",
     review:
-      "Amazing! The animations and smooth interactions make the platform feel alive. It’s the future of music platforms!",
+      "Amazing! The animations and smooth interactions make the platform feel alive. It's the future of music platforms!",
   },
   {
     name: "Michael Smith",
@@ -46,14 +46,14 @@ export default function Reviews() {
   }, []);
 
   return (
-    <div className="w-full flex flex-col items-center justify-center py-16  text-white" id="testimonials">
+    <div className="w-full flex flex-col items-center justify-center py-16  text-gray-900" id="testimonials">
       <h2
-        className={`${orbitron.className} text-4xl font-bold mb-10 tracking-wide text-center`}
+        className={`${orbitron.className} text-4xl font-bold mb-10 tracking-wide text-center text-gray-900`}
       >
         What Our Clients Say
       </h2>
 
-      <div className="relative w-[90%] md:w-[700px] h-[250px] overflow-hidden">
+      <div className="relative w-[90%] md:w-[700px] h-[250px] overflow-hidden bg-white rounded-2xl shadow-sm border border-gray-200">
         <div
           className="flex transition-transform duration-700 ease-in-out"
           style={{ transform: `translateX(-${current * 100}%)` }}
@@ -61,23 +61,23 @@ export default function Reviews() {
           {reviews.map((r, idx) => (
             <div
               key={idx}
-              className="w-full flex-shrink-0 flex flex-col items-center text-center px-6"
+              className="w-full flex-shrink-0 flex flex-col items-center text-center px-6 py-8"
             >
-              <FaQuoteLeft className="text-4xl text-yellow-400 mb-4" />
-              <p className={`${oxanium.className} text-lg italic max-w-xl`}>
+              <FaQuoteLeft className="text-4xl text-yellow-500 mb-4" />
+              <p className={`${oxanium.className} text-lg italic max-w-xl text-gray-700`}>
                 {r.review}
               </p>
-              <div className="flex text-yellow-400 mt-4 mb-2">
+              <div className="flex text-yellow-500 mt-4 mb-2">
                 {[...Array(5)].map((_, i) => (
                   <FaStar key={i} />
                 ))}
               </div>
               <h3
-                className={`${orbitron.className} text-xl font-semibold mt-2`}
+                className={`${orbitron.className} text-xl font-semibold mt-2 text-gray-900`}
               >
                 {r.name}
               </h3>
-              <p className={`${oxanium.className} text-sm text-gray-400`}>
+              <p className={`${oxanium.className} text-sm text-gray-500`}>
                 {r.role}
               </p>
             </div>
@@ -90,8 +90,8 @@ export default function Reviews() {
         {reviews.map((_, idx) => (
           <div
             key={idx}
-            className={`w-3 h-3 rounded-full ${
-              current === idx ? "bg-yellow-400" : "bg-gray-600"
+            className={`w-3 h-3 rounded-full transition-colors ${
+              current === idx ? "bg-yellow-500" : "bg-gray-300"
             }`}
           ></div>
         ))}
