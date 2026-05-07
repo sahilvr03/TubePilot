@@ -19,7 +19,7 @@ const REVIEWS = [
     location: "London, UK",
     rating: 5,
     review:
-      "TechTrend Innovations delivered our AI-powered SaaS MVP in just 10 weeks — on time, on budget, and beyond what we expected. The team's communication was exceptional throughout. We went from idea to paying customers in under 3 months.",
+      "TechTrend Innovations delivered our AI-powered SaaS MVP in just 10 weeks — on time, on budget, and beyond what we expected. The team&amp;s communication was exceptional throughout. We went from idea to paying customers in under 3 months.",
     service: "AI SaaS Development",
   },
   {
@@ -37,7 +37,7 @@ const REVIEWS = [
     location: "Toronto, Canada",
     rating: 5,
     review:
-      "We hired TechTrend to build our React Native health tracking app and the result was outstanding — 4.8 stars on both app stores within the first month. Their attention to UX detail and performance optimization sets them apart from every agency we've worked with.",
+      "We hired TechTrend to build our React Native health tracking app and the result was outstanding — 4.8 stars on both app stores within the first month. Their attention to UX detail and performance optimization sets them apart from every agency we&amp;ve worked with.",
     service: "Mobile App Development",
   },
   {
@@ -46,7 +46,7 @@ const REVIEWS = [
     location: "Lisbon, Portugal",
     rating: 5,
     review:
-      "The IoT dashboard TechTrend built for our retail analytics platform handles 50,000+ data points in real time without a hiccup. Their engineers genuinely understand cloud infrastructure. We've extended our contract for a second phase already.",
+      "The IoT dashboard TechTrend built for our retail analytics platform handles 50,000+ data points in real time without a hiccup. Their engineers genuinely understand cloud infrastructure. We&amp;ve extended our contract for a second phase already.",
     service: "IoT & Cloud Development",
   },
   {
@@ -107,7 +107,7 @@ function ReviewCard({ review, direction }) {
         className={`${oxanium.className} text-base sm:text-lg italic text-gray-700 leading-relaxed max-w-2xl mb-6`}
         itemProp="reviewBody"
       >
-        "{review.review}"
+        {review.review}
       </p>
 
       {/* Stars */}
@@ -194,7 +194,7 @@ export default function Reviews() {
           <div className="w-16 h-1 bg-gradient-to-r from-cyan-500 to-pink-500 mx-auto mb-5 rounded-full" />
           <p className={`${oxanium.className} text-gray-500 text-base max-w-xl mx-auto leading-relaxed`}>
             Trusted by founders, CTOs, and e-commerce directors across 15+ countries.
-            Here's what they say about working with TechTrend Innovations.
+            Here&amp;s what they say about working with TechTrend Innovations.
           </p>
         </motion.div>
 

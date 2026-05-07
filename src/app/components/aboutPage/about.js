@@ -53,7 +53,7 @@ const SERVICES = [
     shortDesc:
       "Build robust online stores with AI-driven insights and seamless integrations.",
     longDesc:
-      "From Shopify custom development to fully bespoke e-commerce platforms, we build stores that convert. Our e-commerce solutions include AI chatbot integration, personalized recommendation engines, headless commerce architecture, and ERP/inventory integrations. We've helped merchants across Pakistan, UAE, and the UK scale from zero to millions in online revenue.",
+      "From Shopify custom development to fully bespoke e-commerce platforms, we build stores that convert. Our e-commerce solutions include AI chatbot integration, personalized recommendation engines, headless commerce architecture, and ERP/inventory integrations. We&amp;ve helped merchants across Pakistan, UAE, and the UK scale from zero to millions in online revenue.",
     highlights: [
       "Shopify & WooCommerce development",
       "AI chatbot & product recommendations",
@@ -401,7 +401,7 @@ export default function AboutPage() {
                 has grown into a trusted software development partner for over{" "}
                 <strong className="text-gray-800">120 clients across 15+ countries</strong>.
                 We combine deep technical expertise with a genuine understanding
-                of business goals — we don't just build features, we build
+                of business goals — we don&amp;t just build features, we build
                 outcomes.
               </p>
               <p>
@@ -413,7 +413,7 @@ export default function AboutPage() {
                 OpenAI, Anthropic Claude, and Google Gemini APIs.
               </p>
               <p>
-                Whether you're a first-time founder validating an MVP or an
+                Whether you&amp;re a first-time founder validating an MVP or an
                 established business modernizing legacy systems, we have the
                 process, team, and experience to deliver on time and on budget —
                 with full IP ownership transferred to you at project completion.
@@ -517,7 +517,7 @@ export default function AboutPage() {
           <p
             className={`${oxanium.className} text-white/85 text-base max-w-xl mx-auto mb-8 leading-relaxed`}
           >
-            From AI-powered SaaS to mobile apps and e-commerce platforms — let's
+            From AI-powered SaaS to mobile apps and e-commerce platforms — let&amp;s
             turn your idea into a product people love. First consultation is
             completely free.
           </p>
