@@ -17,42 +17,88 @@ const oxanium  = Oxanium({ subsets: ["latin"], weight: ["400", "600", "700"], di
 
 const ecommercePlans = [
   {
-    name: "Starter Shopify Store",
+    name: "Starter Ecommerce Store",
     price: "$199",
     oldPrice: "$249",
-    badge: "Best for New Stores",
-    seoDesc: "Affordable Shopify store setup with mobile-responsive design and product upload.",
+    badge: "Best for Startups",
+    seoDesc:
+      "Affordable ecommerce website development using Shopify, WordPress, WooCommerce, or custom code with mobile-responsive design and SEO optimization.",
+
+    keywords: [
+      "ecommerce website development",
+      "shopify store setup",
+      "wordpress ecommerce website",
+      "woocommerce development",
+      "custom ecommerce website",
+      "responsive online store",
+      "small business ecommerce website",
+      "affordable ecommerce development",
+    ],
+
     features: [
-      "Shopify Store Setup & Configuration",
+      "Shopify / WordPress / Custom Store Setup",
       "20 Products Uploaded",
-      "Basic Theme Customization",
       "Mobile-Responsive Design",
+      "Basic SEO Optimization",
+      "Fast Loading Store",
     ],
   },
+
   {
-    name: "Pro Shopify Store",
+    name: "Professional Ecommerce Solution",
     price: "$399",
     oldPrice: "$499",
     badge: "Most Popular",
-    seoDesc: "Custom Shopify theme development with email marketing integration and 100 products.",
+    seoDesc:
+      "Professional ecommerce website development with custom UI/UX, WooCommerce, Shopify, or custom-coded solutions optimized for conversions and business growth.",
+
+    keywords: [
+      "professional ecommerce website",
+      "custom online store development",
+      "woocommerce expert",
+      "shopify development company",
+      "custom coded ecommerce website",
+      "conversion optimized ecommerce",
+      "SEO friendly ecommerce store",
+      "online business website",
+    ],
+
     features: [
-      "Custom Shopify Theme Development",
+      "Custom Shopify / WordPress Development",
       "100 Products Uploaded",
+      "Custom UI/UX Design",
       "Email Marketing Integration",
       "Conversion Rate Optimization",
+      "Advanced SEO Setup",
     ],
   },
+
   {
-    name: "Advanced Shopify Suite",
+    name: "Advanced Ecommerce Suite",
     price: "$699",
     oldPrice: "$879",
     badge: "Best for Scaling",
-    seoDesc: "Headless Shopify commerce with unlimited products, automation, and AI recommendations.",
+    seoDesc:
+      "Advanced ecommerce development solution with headless commerce, AI automation, analytics dashboard, and scalable custom architecture for growing brands.",
+
+    keywords: [
+      "headless ecommerce development",
+      "advanced ecommerce solutions",
+      "AI ecommerce automation",
+      "enterprise ecommerce website",
+      "custom ecommerce platform",
+      "scalable online store",
+      "high performance ecommerce",
+      "modern ecommerce architecture",
+    ],
+
     features: [
       "Headless Commerce Architecture",
       "Unlimited Products",
-      "Automation & Analytics Dashboard",
-      "AI-Powered Product Recommendations",
+      "AI Automation & Analytics",
+      "Custom Admin Dashboard",
+      "Advanced SEO & Speed Optimization",
+      "AI Product Recommendations",
     ],
   },
 ];
@@ -276,11 +322,11 @@ const bundlePlans = [
 // ─────────────────────────────────────────────────────────────────────────────
 const SECTIONS = [
   {
-    h2Title: "Shopify E-commerce Development Services",
-    sectionId: "shopify-ecommerce-development",
-    keyword: "shopify development service",
+    h2Title: "E-Commerce Development Services",
+    sectionId: "E-commerce-development",
+    keyword: "e-commerce development service",
     plans: ecommercePlans,
-    desc: "Launch or scale your online store with our affordable Shopify development services. From custom theme design to headless commerce and AI-powered product recommendations — we deliver conversion-optimized Shopify stores for businesses worldwide.",
+    desc: "Launch or scale your online store with our affordable E-Commerce development services. From custom theme design to headless commerce and AI-powered product recommendations — we deliver conversion-optimized E-Commerce stores for businesses worldwide.",
   },
   {
     h2Title: "AI Chatbot & Software Integration Services",

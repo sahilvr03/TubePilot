@@ -198,7 +198,7 @@ export default function HeroSection() {
                  * Contains secondary keywords: SaaS, Shopify, Mobile Apps
                  */}
                 <span className="block text-gray-800 mt-2 text-xl sm:text-2xl md:text-3xl">
-                  SaaS Development, Shopify &amp; Mobile Apps
+                  SaaS Development, E-Commerce Stores &amp; Mobile Apps
                 </span>
               </h1>
 
@@ -221,7 +221,7 @@ export default function HeroSection() {
                 high-performance{" "}
                 <strong className="text-gray-800 font-semibold">custom SaaS solutions</strong>,{" "}
                 <strong className="text-gray-800 font-semibold">AI chatbot integration</strong>,{" "}
-                <strong className="text-gray-800 font-semibold">Shopify e-commerce stores</strong>,{" "}
+                <strong className="text-gray-800 font-semibold">E-Commerce Stores</strong>,{" "}
                 <strong className="text-gray-800 font-semibold">mobile app development</strong>{" "}
                 (iOS &amp; Android), and IoT platforms — with cutting-edge AI and stunning user experiences.
               </p>
