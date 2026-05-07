@@ -65,7 +65,7 @@ export default function CTA() {
                 className="flex-shrink-0 flex items-center"
               >
                 <Image
-                  src="/docoders.png"
+                  src="/log.png"
                   alt="Logo"
                   width={200}
                   height={100}

@@ -1,4 +1,5 @@
 // layout.jsx
+import Navbar from "./components/main/navbar";
 import "./globals.css";
 import { Bungee, Permanent_Marker } from "next/font/google";
 
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`antialiased ${bungee.className}`}>
+        <Navbar />
         {children}
       </body>
     </html>
